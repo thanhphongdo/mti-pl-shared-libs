@@ -5,7 +5,8 @@ export const config = {
     },
     jwt: {
         secret: process.env.JWT_SECRET,
-        refreshSecret: process.env.JWT_REFRESH_SECRET
+        refreshSecret: process.env.JWT_REFRESH_SECRET,
+        expiresIn: process.env.EXPIRES_IN
     },
     ports: {
         gateway: process.env.GATEWAY_PORT,

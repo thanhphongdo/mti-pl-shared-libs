@@ -6,7 +6,8 @@ export const config = {
     },
     jwt: {
         secret: 'jwt-secret',
-        refreshSecret: 'jwt-refresh-secret'
+        refreshSecret: 'jwt-refresh-secret',
+        expiresIn: 60
     },
     ports: {
         gateway: 3000,

@@ -6,6 +6,7 @@ export declare const config: {
     jwt: {
         secret: string;
         refreshSecret: string;
+        expiresIn: number;
     };
     ports: {
         gateway: number;

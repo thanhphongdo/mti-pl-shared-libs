@@ -4,7 +4,7 @@ exports.config = void 0;
 exports.config = {
     env: process.env.NODE_ENV,
     db: {
-        mongodb: "mongodb://localhost:27017/nest"
+        user: "mongodb://localhost:27017/nest"
     },
     jwt: {
         secret: 'jwt-secret',

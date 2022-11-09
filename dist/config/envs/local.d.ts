@@ -1,7 +1,7 @@
 export declare const config: {
     env: string;
     db: {
-        mongodb: string;
+        user: string;
     };
     jwt: {
         secret: string;

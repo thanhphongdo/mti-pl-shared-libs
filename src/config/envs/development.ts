@@ -1,7 +1,7 @@
 export const config = {
     env: process.env.NODE_ENV,
     db: {
-        mongodb: process.env.MONGODB
+        user: process.env.DB_USER
     },
     jwt: {
         secret: process.env.JWT_SECRET,

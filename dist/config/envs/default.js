@@ -4,7 +4,8 @@ exports.config = void 0;
 exports.config = {
     env: process.env.NODE_ENV,
     db: {
-        user: process.env.DB_USER
+        user: process.env.DB_USER,
+        other: process.env.DB_OTHER
     },
     jwt: {
         secret: process.env.JWT_SECRET,

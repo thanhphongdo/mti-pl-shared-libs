@@ -2,7 +2,6 @@ export declare const config: {
     env: string;
     db: {
         user: string;
-        other: string;
     };
     jwt: {
         secret: string;

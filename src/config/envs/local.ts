@@ -9,7 +9,8 @@ export const config = {
         refreshSecret: 'jwt-refresh-secret'
     },
     ports: {
-        authentication: 3000,
-        user: 3001
+        gateway: 3000,
+        authentication: 3001,
+        user: 3002
     }
 };

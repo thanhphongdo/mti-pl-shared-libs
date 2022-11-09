@@ -8,6 +8,7 @@ export declare const config: {
         refreshSecret: string;
     };
     ports: {
+        gateway: string;
         authentication: string;
         user: string;
     };

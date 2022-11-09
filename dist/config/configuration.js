@@ -18,7 +18,7 @@ const util = {
 };
 const configuration = async () => {
     const { config } = await Promise.resolve().then(() => require(`${__dirname}/envs/default`));
-    const { config: environment } = await Promise.resolve().then(() => require(`${__dirname}/envs/${(process.env.NODE_ENV || 'development').trim()}`));
+    const { config: environment } = await Promise.resolve().then(() => require(`${__dirname}/envs/${(process.env.NODE_ENV || 'local').trim()}`));
     return util.merge(config, environment);
 };
 exports.configuration = configuration;

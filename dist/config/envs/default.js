@@ -11,9 +11,14 @@ exports.config = {
         refreshSecret: process.env.JWT_REFRESH_SECRET
     },
     ports: {
-        gateway: process.env.GATE_WAY,
+        gateway: process.env.GATEWAY_PORT,
         authentication: process.env.AUTHENTICATION_SERVICE_PORT,
         user: process.env.USER_SERVICE_PORT
+    },
+    serviceDomain: {
+        gateway: process.env.GATEWAY_DOMAIN,
+        authentication: process.env.AUTHENTICATION_DOMAIN,
+        user: process.env.USER_SERVICE_DOMAIN
     }
 };
 //# sourceMappingURL=default.js.map

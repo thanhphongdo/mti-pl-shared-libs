@@ -12,5 +12,10 @@ export const config = {
         gateway: 3000,
         authentication: 3001,
         user: 3002
+    },
+    serviceDomain: {
+        gateway: 'http://localhost:3000',
+        authentication: 'http://localhost:3001',
+        user: 'http://localhost:3002'
     }
 };

@@ -12,4 +12,9 @@ export declare const config: {
         authentication: string;
         user: string;
     };
+    serviceDomain: {
+        gateway: string;
+        authentication: string;
+        user: string;
+    };
 };

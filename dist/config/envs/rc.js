@@ -15,4 +15,4 @@ exports.config = {
         user: process.env.user_service_port
     }
 };
-//# sourceMappingURL=development.js.map
+//# sourceMappingURL=rc.js.map

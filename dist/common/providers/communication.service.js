@@ -63,6 +63,17 @@ let CommunicationService = class CommunicationService {
     getServiceName() {
         return this.serviceName;
     }
+    async forwardRequest(req) {
+        const data = JSON.stringify(req.body || {});
+        const res = await this.httpService.request({
+            method: req.method,
+            headers: Object.assign(Object.assign({}, req.headers), { 'content-length': data.length, 'if-none-match': null }),
+            url: `${this.configService.get(`serviceDomain.${this.serviceName}`)}${req.url}`,
+            params: req.params,
+            data
+        });
+        return (await (0, rxjs_1.lastValueFrom)(res)).data;
+    }
 };
 CommunicationService = __decorate([
     (0, common_1.Injectable)(),

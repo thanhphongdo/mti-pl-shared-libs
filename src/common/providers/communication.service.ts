@@ -2,6 +2,7 @@ import { Injectable } from '@nestjs/common';
 import { HttpService } from '@nestjs/axios';
 import { lastValueFrom } from 'rxjs';
 import { ConfigService } from './config.service';
+import { Request } from 'express';
 
 @Injectable()
 export class CommunicationService {
@@ -54,5 +55,21 @@ export class CommunicationService {
 
     getServiceName() {
         return this.serviceName;
+    }
+
+    async forwardRequest<T>(req: Request) {
+        const data = JSON.stringify(req.body || {});
+        const res = await this.httpService.request({
+            method: req.method,
+            headers: {
+                ...req.headers,
+                'content-length': data.length,
+                'if-none-match': null
+            },
+            url: `${this.configService.get(`serviceDomain.${this.serviceName}` as any)}${req.url}`,
+            params: req.params,
+            data
+        });
+        return (await lastValueFrom(res)).data as T;
     }
 }

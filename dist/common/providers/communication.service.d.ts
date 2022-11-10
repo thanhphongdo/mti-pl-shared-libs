@@ -1,5 +1,6 @@
 import { HttpService } from '@nestjs/axios';
 import { ConfigService } from './config.service';
+import { Request } from 'express';
 export declare class CommunicationService {
     private serviceName;
     private httpService;
@@ -34,4 +35,5 @@ export declare class CommunicationService {
         [key: string]: any;
     }): Promise<T>;
     getServiceName(): string;
+    forwardRequest<T>(req: Request): Promise<T>;
 }

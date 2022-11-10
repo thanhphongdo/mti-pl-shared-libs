@@ -3,6 +3,11 @@ import { HttpModule, HttpService } from '@nestjs/axios'
 import { ConfigService } from './providers';
 import { CommunicationService } from './providers';
 
+export const Services = {
+    USER: 'USER',
+    AUTHENTICATION: 'AUTHENTICATION'
+}
+
 @Global()
 @Module({
     imports: [
@@ -11,14 +16,14 @@ import { CommunicationService } from './providers';
     providers: [
         ConfigService,
         {
-            provide: 'USER_SERVICE',
+            provide: Services.USER,
             useFactory: (httpService: HttpService, configService: ConfigService) => {
                 return new CommunicationService('user', httpService, configService)
             },
             inject: [HttpService, ConfigService],
         },
         {
-            provide: 'AUTHENTICATION_SERVICE',
+            provide: Services.AUTHENTICATION,
             useFactory: (httpService: HttpService, configService: ConfigService) => {
                 return new CommunicationService('authentication', httpService, configService)
             },

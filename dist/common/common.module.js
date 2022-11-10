@@ -6,11 +6,15 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.CommonModule = void 0;
+exports.CommonModule = exports.Services = void 0;
 const common_1 = require("@nestjs/common");
 const axios_1 = require("@nestjs/axios");
 const providers_1 = require("./providers");
 const providers_2 = require("./providers");
+exports.Services = {
+    USER: 'USER',
+    AUTHENTICATION: 'AUTHENTICATION'
+};
 let CommonModule = class CommonModule {
 };
 CommonModule = __decorate([
@@ -22,14 +26,14 @@ CommonModule = __decorate([
         providers: [
             providers_1.ConfigService,
             {
-                provide: 'USER_SERVICE',
+                provide: exports.Services.USER,
                 useFactory: (httpService, configService) => {
                     return new providers_2.CommunicationService('user', httpService, configService);
                 },
                 inject: [axios_1.HttpService, providers_1.ConfigService],
             },
             {
-                provide: 'AUTHENTICATION_SERVICE',
+                provide: exports.Services.AUTHENTICATION,
                 useFactory: (httpService, configService) => {
                     return new providers_2.CommunicationService('authentication', httpService, configService);
                 },

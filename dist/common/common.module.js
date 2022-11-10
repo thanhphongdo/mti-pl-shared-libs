@@ -8,17 +8,38 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.CommonModule = void 0;
 const common_1 = require("@nestjs/common");
+const axios_1 = require("@nestjs/axios");
 const providers_1 = require("./providers");
+const providers_2 = require("./providers");
 let CommonModule = class CommonModule {
 };
 CommonModule = __decorate([
     (0, common_1.Global)(),
     (0, common_1.Module)({
+        imports: [
+            axios_1.HttpModule
+        ],
         providers: [
-            providers_1.ConfigService
+            providers_1.ConfigService,
+            {
+                provide: 'USER_SERVICE',
+                useFactory: (httpService, configService) => {
+                    return new providers_2.CommunicationService('user', httpService, configService);
+                },
+                inject: [axios_1.HttpService, providers_1.ConfigService],
+            },
+            {
+                provide: 'AUTHENTICATION_SERVICE',
+                useFactory: (httpService, configService) => {
+                    return new providers_2.CommunicationService('authentication', httpService, configService);
+                },
+                inject: [axios_1.HttpService, providers_1.ConfigService],
+            }
         ],
         exports: [
-            providers_1.ConfigService
+            providers_1.ConfigService,
+            'USER_SERVICE',
+            'AUTHENTICATION_SERVICE'
         ]
     })
 ], CommonModule);

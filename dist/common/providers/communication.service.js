@@ -26,7 +26,7 @@ let CommunicationService = class CommunicationService {
             headers,
             url: `${this.configService.get(`serviceDomain.${this.serviceName}`)}${url}`,
             params: params,
-            data: data ? JSON.stringify(data) : null
+            data
         });
         return (await (0, rxjs_1.lastValueFrom)(res)).data;
     }
@@ -36,7 +36,7 @@ let CommunicationService = class CommunicationService {
             headers,
             url: `${this.configService.get(`serviceDomain.${this.serviceName}`)}${url}`,
             params: params,
-            data: data ? JSON.stringify(data) : null
+            data
         });
         return (await (0, rxjs_1.lastValueFrom)(res)).data;
     }
@@ -46,7 +46,7 @@ let CommunicationService = class CommunicationService {
             headers,
             url: `${this.configService.get(`serviceDomain.${this.serviceName}`)}${url}`,
             params: params,
-            data: data ? JSON.stringify(data) : null
+            data
         });
         return (await (0, rxjs_1.lastValueFrom)(res)).data;
     }
@@ -56,12 +56,9 @@ let CommunicationService = class CommunicationService {
             headers,
             url: `${this.configService.get(`serviceDomain.${this.serviceName}`)}${url}`,
             params: params,
-            data: data ? JSON.stringify(data) : null
+            data
         });
         return (await (0, rxjs_1.lastValueFrom)(res)).data;
-    }
-    getServiceName() {
-        return this.serviceName;
     }
     async forwardRequest(req) {
         const data = JSON.stringify(req.body || {});
@@ -73,6 +70,9 @@ let CommunicationService = class CommunicationService {
             data
         });
         return (await (0, rxjs_1.lastValueFrom)(res)).data;
+    }
+    getServiceName() {
+        return this.serviceName;
     }
 };
 CommunicationService = __decorate([

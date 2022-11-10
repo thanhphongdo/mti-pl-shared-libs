@@ -15,7 +15,7 @@ export class CommunicationService {
             headers,
             url: `${this.configService.get(`serviceDomain.${this.serviceName}` as any)}${url}`,
             params: params,
-            data: data ? JSON.stringify(data) : null
+            data
         });
         return (await lastValueFrom(res)).data as T;
     }
@@ -26,7 +26,7 @@ export class CommunicationService {
             headers,
             url: `${this.configService.get(`serviceDomain.${this.serviceName}` as any)}${url}`,
             params: params,
-            data: data ? JSON.stringify(data) : null
+            data
         });
         return (await lastValueFrom(res)).data as T;
     }
@@ -37,7 +37,7 @@ export class CommunicationService {
             headers,
             url: `${this.configService.get(`serviceDomain.${this.serviceName}` as any)}${url}`,
             params: params,
-            data: data ? JSON.stringify(data) : null
+            data
         });
         return (await lastValueFrom(res)).data as T;
     }
@@ -48,13 +48,9 @@ export class CommunicationService {
             headers,
             url: `${this.configService.get(`serviceDomain.${this.serviceName}` as any)}${url}`,
             params: params,
-            data: data ? JSON.stringify(data) : null
+            data
         });
         return (await lastValueFrom(res)).data as T;
-    }
-
-    getServiceName() {
-        return this.serviceName;
     }
 
     async forwardRequest<T>(req: Request) {
@@ -71,5 +67,9 @@ export class CommunicationService {
             data
         });
         return (await lastValueFrom(res)).data as T;
+    }
+
+    getServiceName() {
+        return this.serviceName;
     }
 }

@@ -34,6 +34,6 @@ export declare class CommunicationService {
     }, headers?: {
         [key: string]: any;
     }): Promise<T>;
-    getServiceName(): string;
     forwardRequest<T>(req: Request): Promise<T>;
+    getServiceName(): string;
 }

@@ -42,8 +42,8 @@ CommonModule = __decorate([
         ],
         exports: [
             providers_1.ConfigService,
-            'USER_SERVICE',
-            'AUTHENTICATION_SERVICE'
+            exports.Services.USER,
+            exports.Services.AUTHENTICATION
         ]
     })
 ], CommonModule);

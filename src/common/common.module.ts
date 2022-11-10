@@ -32,8 +32,8 @@ export const Services = {
     ],
     exports: [
         ConfigService,
-        'USER_SERVICE',
-        'AUTHENTICATION_SERVICE'
+        Services.USER,
+        Services.AUTHENTICATION
     ]
 })
 export class CommonModule {

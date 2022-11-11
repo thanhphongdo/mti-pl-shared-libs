@@ -9,7 +9,7 @@ exports.config = {
     jwt: {
         secret: 'jwt-secret',
         refreshSecret: 'jwt-refresh-secret',
-        expiresIn: 60
+        expiresIn: 60 * 60 * 24
     },
     ports: {
         gateway: 3000,
